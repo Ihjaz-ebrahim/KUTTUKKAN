@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuttukan General Trading LLC | Premium Trade & Industrial Procurement UAE</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#1d5b90',
+                            800: '#0f2b48',
+                            900: '#0a1d33',
+                            amber: '#d97706',
+                            amberHover: '#b45309'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(15, 43, 72, 0.94) 0%, rgba(10, 29, 51, 0.90) 100%);
+        }
+        .modal-animate {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <header class="sticky top-0 z-50 bg-brand-800 text-white shadow-lg backdrop-blur-md bg-opacity-95 border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="bg-white h-12 w-12 rounded-lg flex items-center justify-center shadow-md p-1 group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+                    <!-- PASTE YOUR LOGO URL IN THE SRC ATTRIBUTE BELOW -->
+                    <img src="https://i.postimg.cc/Xvghns4B/Whats-App-Image-2026-09-09-at-12-01-42-PM.jpg" alt="KGT Logo" class="h-full w-full object-contain" onerror="this.onerror=null; this.outerHTML='<span class=\'font-black text-xl text-brand-800\'>KGT</span>';">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-bold tracking-tight text-white group-hover:text-amber-400 transition-colors">
+                        KUTTUKAN
+                    </span>
+                    <span class="text-xs tracking-widest text-amber-400 font-semibold uppercase">
+                        General Trading LLC
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-slate-200 hover:text-amber-400 transition-colors py-2">About Us</a>
+                <a href="#capabilities" class="text-slate-200 hover:text-amber-400 transition-colors py-2">Capabilities</a>
+                <a href="#catalog" class="text-slate-200 hover:text-amber-400 transition-colors py-2">Products</a>
+                <a href="#contact" class="text-slate-200 hover:text-amber-400 transition-colors py-2">Contact</a>
+                
+                <button onclick="openModal()" class="bg-brand-amber hover:bg-brand-amberHover text-white px-5 py-2.5 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Request Quote</span>
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" type="button" class="text-slate-200 hover:text-white focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-slate-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800">About Us</a>
+            <a href="#capabilities" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800">Capabilities</a>
+            <a href="#catalog" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800">Products</a>
+            <a href="#contact" onclick="toggleMenu()" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-800">Contact</a>
+            <button onclick="toggleMenu(); openModal();" class="w-full text-center bg-brand-amber hover:bg-brand-amberHover text-white px-4 py-3 rounded-lg font-semibold shadow-md">
+                Request Quote
+            </button>
+        </div>
+    </header>
+
+    <section class="relative bg-brand-900 text-white overflow-hidden min-h-[560px] flex items-center">
+        <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="absolute inset-0 z-0 gradient-overlay"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center md:text-left">
+            <div class="grid md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-8 space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-amber-500/20 text-amber-300 border border-amber-500/30 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Trusted Commercial Trading Partner in the UAE</span>
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Global Trade & <span class="text-amber-400">Industrial Procurement</span> Solutions
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
+                        Streamlining international sourcing, commercial plumbing components, flow control technology, and end-to-end supply chain logistics across Abu Dhabi and the wider GCC region.
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <button onclick="openModal()" class="w-full sm:w-auto bg-brand-amber hover:bg-brand-amberHover text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-3 text-base">
+                            <span>Submit Procurement Inquiry</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <a href="https://wa.me/971524136490" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-4 rounded-xl font-semibold shadow-lg transition-all flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Direct WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 hidden md:block">
+                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 backdrop-blur-md shadow-2xl space-y-4">
+                        <h3 class="text-amber-400 font-bold uppercase text-xs tracking-widest">Key Sourcing Highlights</h3>
+                        
+                        <div class="p-3 bg-brand-900/60 rounded-xl border border-slate-700/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-truck-fast text-brand-amber text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm text-white">Fast Logistics Response</h4>
+                                <p class="text-xs text-slate-400">Localized distribution and rapid sourcing in UAE</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-brand-900/60 rounded-xl border border-slate-700/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-faucet-drip text-brand-amber text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm text-white">Flow Technology</h4>
+                                <p class="text-xs text-slate-400">Plumbing aerators, regulators & specialty fittings</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-brand-900/60 rounded-xl border border-slate-700/60 flex items-start space-x-3">
+                            <i class="fa-solid fa-handshake-angle text-brand-amber text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-sm text-white">Direct Purchasing Desk</h4>
+                                <p class="text-xs text-slate-400">Dedicated vendor & supplier relations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-amber uppercase tracking-widest mb-2">Corporate Profile</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-800">Your Strategic Supply Partner</p>
+                <div class="w-16 h-1 bg-brand-amber mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-slate-600 leading-relaxed">
+                    <p class="text-lg font-medium text-slate-800">
+                        <strong class="text-brand-800">Kuttukan General Trading LLC</strong> operates as a key commercial hub in the United Arab Emirates, delivering multi-industry procurement, trading, and supply chain management services.
+                    </p>
+                    <p>
+                        With dedicated focus on industrial hardware, commercial plumbing fixtures, flow technology components, and customized merchant solutions, we bridge global manufacturers with regional enterprise demands.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="block text-2xl font-black text-brand-500 mb-1">100%</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase">Quality Verified Products</span>
+                        </div>
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                            <span class="block text-2xl font-black text-brand-amber mb-1">UAE Wide</span>
+                            <span class="text-xs font-semibold text-slate-500 uppercase">Distribution Network</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div class="bg-gradient-to-br from-brand-900 via-brand-800 to-brand-500 rounded-3xl p-8 text-white shadow-2xl relative overflow-hidden border border-white/10 transition-transform duration-500 hover:-translate-y-1">
+                        <!-- PASTE YOUR LOGO URL IN THE SRC ATTRIBUTE BELOW FOR THE WATERMARK -->
+                        <img src="https://i.postimg.cc/Xvghns4B/Whats-App-Image-2026-09-09-at-12-01-42-PM.jpg" alt="" class="absolute -right-4 -bottom-4 w-64 h-64 opacity-10 object-contain pointer-events-none mix-blend-screen transition-transform duration-700 group-hover:scale-110 group-hover:opacity-15" onerror="this.style.display='none'">
+                        
+                        <i class="fa-solid fa-quote-left text-brand-500/30 text-9xl absolute -top-8 -left-8 pointer-events-none transform -rotate-6"></i>
+                        <h3 class="text-xl font-bold mb-4 text-amber-400 relative z-10 tracking-wide">Purchasing & Vendor Relations</h3>
+                        <p class="text-slate-200 text-sm mb-8 leading-relaxed relative z-10 font-light">
+                            "Our mission is to maintain rigorous procurement standards, fast response cycles for supplier quotes, and long-term partnerships with leading global manufacturers."
+                        </p>
+                        
+                        <div class="grid gap-3 pt-6 border-t border-white/10 relative z-10">
+                            <!-- Premium Contact Card 1 -->
+                            <div class="flex items-center p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.4)] group/card cursor-default">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-brand-amber flex items-center justify-center font-bold text-lg text-white shadow-lg ring-2 ring-white/20 group-hover/card:scale-110 transition-transform duration-300 shrink-0">
+                                    NK
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-white tracking-wide text-sm">Navas Kuttukkan</h4>
+                                    <p class="text-xs text-amber-300 font-medium mt-0.5 opacity-90">Managing Director</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Premium Contact Card 2 -->
+                            <div class="flex items-center p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_20px_-4px_rgba(0,0,0,0.4)] group/card cursor-default">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-slate-500 to-slate-700 flex items-center justify-center font-bold text-lg text-white shadow-lg ring-2 ring-white/20 group-hover/card:scale-110 transition-transform duration-300 shrink-0">
+                                    IE
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-bold text-white tracking-wide text-sm">Ihjaz Ebrahim</h4>
+                                    <p class="text-xs text-slate-300 font-medium mt-0.5 opacity-90">Purchasing / Commercial Mgr</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="capabilities" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-brand-amber uppercase tracking-widest mb-2">Our Capabilities</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-800">End-to-End Trading Services</p>
+                <div class="w-16 h-1 bg-brand-amber mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-200 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-colors text-2xl mb-6">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Global Manufacturer Sourcing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Identifying, vetting, and directly contracting with international component manufacturers across Europe, Asia, and the Americas.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Direct OEM Manufacturer Ties</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Quality Control Compliance</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-200 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-colors text-2xl mb-6">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Industrial & Technical Supplies</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Bulk procurement of specialized plumbing components, water conservation technology, hardware, and engineering spares.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Neoperl-grade Flow Regulators</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Sanitary & Mechanical Fittings</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-slate-200 group">
+                    <div class="w-14 h-14 bg-brand-50 rounded-xl flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-colors text-2xl mb-6">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-800 mb-3">Logistics & Customs Clearance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                        Efficient freight forwarding, UAE port clearance, warehousing, and localized B2B order distribution.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Customs Documentation Support</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Flexible Freight Terms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-brand-amber uppercase tracking-widest mb-2">Product Portfolio</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-800">Featured Procurement Categories</p>
+                <p class="text-slate-500 text-sm mt-2">Filter categories below to explore our general trading product lines.</p>
+                <div class="w-16 h-1 bg-brand-amber mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="filterCatalog('all', this)" class="cat-btn active bg-brand-800 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-all">
+                    All Categories
+                </button>
+                <button onclick="filterCatalog('plumbing', this)" class="cat-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-5 py-2 rounded-lg text-sm font-semibold transition-all">
+                    Plumbing & Flow Tech
+                </button>
+                <button onclick="filterCatalog('hardware', this)" class="cat-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-5 py-2 rounded-lg text-sm font-semibold transition-all">
+                    Hardware & Tools
+                </button>
+                <button onclick="filterCatalog('general', this)" class="cat-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-5 py-2 rounded-lg text-sm font-semibold transition-all">
+                    General Merchant Goods
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="catalog-item plumbing bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-brand-800 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Plumbing</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Faucet Aerators & Water Savers</h4>
+                        <p class="text-slate-600 text-xs mb-4">Precision stream aerators, flow regulators, and check valves suited for water management systems.</p>
+                        <button onclick="openModal('Faucet Aerators & Water Savers')" class="w-full bg-slate-200 hover:bg-brand-500 hover:text-white text-slate-700 py-2 rounded-lg text-xs font-bold transition-all">Inquire Now</button>
+                    </div>
+                </div>
+
+                <div class="catalog-item plumbing bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-brand-800 text-amber-400 text-xs font-bold px-3 py-1 rounded-full">Plumbing</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Flexible Hose Assemblies</h4>
+                        <p class="text-slate-600 text-xs mb-4">High-pressure braided connecting hoses and industrial plumbing connectors.</p>
+                        <button onclick="openModal('Flexible Hose Assemblies')" class="w-full bg-slate-200 hover:bg-brand-500 hover:text-white text-slate-700 py-2 rounded-lg text-xs font-bold transition-all">Inquire Now</button>
+                    </div>
+                </div>
+
+                <div class="catalog-item hardware bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-brand-amber text-white text-xs font-bold px-3 py-1 rounded-full">Hardware</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Industrial Fasteners & Bolts</h4>
+                        <p class="text-slate-600 text-xs mb-4">Stainless steel, galvanized bolts, nuts, washers, and specialized anchors for construction.</p>
+                        <button onclick="openModal('Industrial Fasteners')" class="w-full bg-slate-200 hover:bg-brand-500 hover:text-white text-slate-700 py-2 rounded-lg text-xs font-bold transition-all">Inquire Now</button>
+                    </div>
+                </div>
+
+                <div class="catalog-item hardware bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-brand-amber text-white text-xs font-bold px-3 py-1 rounded-full">Hardware</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Valves & Pressure Control</h4>
+                        <p class="text-slate-600 text-xs mb-4">Brass ball valves, gate valves, and pressure regulating equipment for commercial projects.</p>
+                        <button onclick="openModal('Valves & Pressure Control')" class="w-full bg-slate-200 hover:bg-brand-500 hover:text-white text-slate-700 py-2 rounded-lg text-xs font-bold transition-all">Inquire Now</button>
+                    </div>
+                </div>
+
+                <div class="catalog-item general bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-full">General Trading</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Commercial Consumables</h4>
+                        <p class="text-slate-600 text-xs mb-4">Bulk commercial supplies, packaging materials, and general facility maintenance goods.</p>
+                        <button onclick="openModal('Commercial Consumables')" class="w-full bg-slate-200 hover:bg-brand-500 hover:text-white text-slate-700 py-2 rounded-lg text-xs font-bold transition-all">Inquire Now</button>
+                    </div>
+                </div>
+
+                <div class="catalog-item general bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <div class="h-48 bg-slate-200 relative overflow-hidden flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80');">
+                        <span class="absolute top-3 right-3 bg-slate-700 text-white text-xs font-bold px-3 py-1 rounded-full">Custom Sourcing</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-brand-800 mb-2">Custom Sourcing & RFQ</h4>
+                        <p class="text-slate-600 text-xs mb-4">Need a specific part or manufacturing lot? Submit your specification sheet directly to our buyer desk.</p>
+                        <button onclick="openModal('Custom Technical Sourcing')" class="w-full bg-brand-amber text-white py-2 rounded-lg text-xs font-bold transition-all hover:bg-brand-amberHover">Submit Specification</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-2">Direct Contact</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Get In Touch With Us</p>
+                <div class="w-16 h-1 bg-brand-amber mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-8 space-y-6">
+                    <h3 class="text-xl font-bold text-amber-400 border-b border-slate-700 pb-3 flex items-center">
+                        <i class="fa-solid fa-building text-brand-amber mr-3"></i>
+                        Corporate Entity Details
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-slate-300">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-id-card text-brand-amber mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-white">Legal Entity Name:</strong>
+                                <span>Kuttukan General Trading LLC</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-amber mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-white">Jurisdiction / Location:</strong>
+                                <span>Abu Dhabi / United Arab Emirates (UAE)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-user-tie text-brand-amber mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-white">Management:</strong>
+                                <span>Navas Kuttukkan (Managing Director)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-user-gear text-brand-amber mt-1 w-5"></i>
+                            <div>
+                                <strong class="block text-white">Key Purchasing Contact:</strong>
+                                <span>Ihjaz Ebrahim (Purchaser)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-8 space-y-6">
+                    <h3 class="text-xl font-bold text-amber-400 border-b border-slate-700 pb-3 flex items-center">
+                        <i class="fa-solid fa-headset text-brand-amber mr-3"></i>
+                        Direct Procurement Channels
+                    </h3>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-center space-x-4 p-3 bg-slate-700/50 rounded-xl border border-slate-600/50">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="block text-xs text-slate-400 mb-1">Phone / Call Desk</span>
+                                <a href="tel:+971524136490" class="text-white font-semibold text-base hover:text-emerald-400 transition-colors">+971 52 413 6490</a>
+                                <a href="tel:+971565983932" class="text-white font-semibold text-base hover:text-emerald-400 transition-colors">+971 56 598 3932</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-3 bg-slate-700/50 rounded-xl border border-slate-600/50">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="block text-xs text-slate-400 mb-1">WhatsApp Instant Inquiry</span>
+                                <a href="https://wa.me/971524136490" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-base hover:text-emerald-400 transition-colors">+971 52 413 6490</a>
+                                <a href="https://wa.me/971565983932" target="_blank" rel="noopener noreferrer" class="text-white font-semibold text-base hover:text-emerald-400 transition-colors">+971 56 598 3932</a>
+                            </div>
+                        </div>
+
+                        <a href="mailto:info@kuttukkan.ae" class="flex items-center space-x-4 p-3 bg-slate-700/50 hover:bg-slate-700 rounded-xl transition-all border border-slate-600/50">
+                            <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs text-slate-400">Official Purchasing Email</span>
+                                <span class="text-white font-semibold text-base">info@kuttukkan.ae</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="rfq-modal" class="fixed inset-0 z-50 hidden bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden relative modal-animate">
+            <div class="bg-brand-800 text-white p-6 flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-file-invoice text-amber-400 text-xl"></i>
+                    <h3 class="font-bold text-lg">Request Quotation / Specs</h3>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white text-xl p-1 focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="rfq-form" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Target Product / Service</label>
+                    <input type="text" id="target-product" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="e.g. Plumbing Aerators / Custom Fittings" required>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Your Name</label>
+                        <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="Full Name" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Company / Org</label>
+                        <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="Company Name">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Email Address</label>
+                        <input type="email" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="name@company.com" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone / WhatsApp</label>
+                        <input type="tel" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="+971 50 000 0000" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Quantity & Project Details</label>
+                    <textarea rows="3" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm" placeholder="Specify required quantities, part numbers, or target delivery timeframe..." required></textarea>
+                </div>
+
+                <div id="form-msg" class="hidden p-3 rounded-lg text-xs font-semibold text-center"></div>
+
+                <div class="pt-2 flex justify-end space-x-3">
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 text-slate-600 hover:text-slate-800 text-sm font-semibold">Cancel</button>
+                    <button type="submit" class="bg-brand-amber hover:bg-brand-amberHover text-white px-6 py-2 rounded-lg font-bold text-sm shadow-md transition-all">
+                        Submit Inquiry
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <a href="https://wa.me/971524136490" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 group" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-sm font-bold pl-0 group-hover:pl-2">Chat Now</span>
+    </a>
+
+    <footer class="bg-brand-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="text-white font-bold">KUTTUKAN GENERAL TRADING LLC</span>
+                <span>&bull; Abu Dhabi, UAE</span>
+            </div>
+            <div>
+                <p>&copy; 2026 Kuttukan General Trading LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        document.getElementById('menu-btn').addEventListener('click', toggleMenu);
+
+        // Category Filter
+        function filterCatalog(category, buttonEl) {
+            const items = document.querySelectorAll('.catalog-item');
+            const buttons = document.querySelectorAll('.cat-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-brand-800', 'text-white', 'active');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            if (buttonEl) {
+                buttonEl.classList.remove('bg-slate-100', 'text-slate-700');
+                buttonEl.classList.add('bg-brand-800', 'text-white', 'active');
+            }
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Logic
+        function openModal(productName = '') {
+            const modal = document.getElementById('rfq-modal');
+            const targetInput = document.getElementById('target-product');
+            const msgBox = document.getElementById('form-msg');
+            
+            msgBox.classList.add('hidden');
+            targetInput.value = productName;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('rfq-modal').classList.add('hidden');
+        }
+
+        // Form Submit Simulation
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msgBox = document.getElementById('form-msg');
+            
+            msgBox.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            msgBox.classList.add('bg-emerald-100', 'text-emerald-800');
+            msgBox.innerHTML = '<i class="fa-solid fa-circle-check mr-1"></i> Inquiry submitted successfully! Directing to purchasing desk...';
+
+            setTimeout(() => {
+                closeModal();
+            }, 1800);
+        }
+    </script>
+</body>
+</html>
